@@ -1,4 +1,5 @@
 echo "======================================================================================"
+echo ""
 echo "Digital Ocean CentOS7 Bootstrap"
 echo ""
 echo "This script will set configure the basics on a CentOS7 Digital Ocean droplet."
@@ -41,12 +42,6 @@ echo "=> Done!"
 echo ""
 echo "======================================================================================"
 echo ""
-read -r -p "Digital Ocean basics applied, do you want to reboot now? " response
-case $response in
-    [yY][eE][sS]|[yY]) 
-        reboot
-        ;;
-    *)
-        exit
-        ;;
-esac
+echo "Digital Ocean basics applied, you should reboot now"
+echo ""
+echo "======================================================================================"
