@@ -41,7 +41,7 @@ echo "=> Done!"
 echo ""
 echo "======================================================================================"
 echo ""
-read -r -p "Digital Ocean basics applied, do you want to reboot now? [y/N]" response
+read -r -p "Digital Ocean basics applied, do you want to reboot now? " response
 case $response in
     [yY][eE][sS]|[yY]) 
         reboot
