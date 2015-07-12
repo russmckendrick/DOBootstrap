@@ -28,11 +28,12 @@ systemctl enable firewalld && systemctl enable fail2ban && systemctl enable ntp
  
 ## Prompt for a reboot
 echo ""
-while true; do
-    read -p "DO stuff applied, do you want to reboot?" yn
-    case $yn in
-        [Yy]* ) reboot; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+read -r -p "DO stuff applied, do you want to reboot? [y/N] " response
+case $response in
+    [yY][eE][sS]|[yY]) 
+        reboot
+        ;;
+    *)
+        exit
+        ;;
+esac
