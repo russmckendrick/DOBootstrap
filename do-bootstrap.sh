@@ -41,11 +41,12 @@ echo "=> Done!"
 echo ""
 echo "======================================================================================"
 echo ""
-while true; do
-    read -p "Digital Ocean basics applied, do you want to reboot now?" yn
-    case $yn in
-        [Yy]* ) reboot; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+read -r -p "Digital Ocean basics applied, do you want to reboot now? [y/N]" response
+case $response in
+    [yY][eE][sS]|[yY]) 
+        reboot
+        ;;
+    *)
+        exit
+        ;;
+esac
