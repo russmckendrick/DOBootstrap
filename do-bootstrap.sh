@@ -24,9 +24,15 @@ timedatectl set-timezone Europe/London
 yum update -y
  
 ## Set the services to start on boot
-systemctl enable firewalld && systemctl enable fail2ban && systemctl enable ntpd
+systemctl enable firewalld && systemctl enable fail2ban && systemctl enable ntp
  
 ## Prompt for a reboot
-echo "-------------------------------"
-echo "DO stuff applied, please reboot"
-echo "-------------------------------"
+echo ""
+while true; do
+    read -p "DO stuff applied, do you want to reboot?" yn
+    case $yn in
+        [Yy]* ) reboot; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
