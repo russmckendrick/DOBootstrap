@@ -1,6 +1,8 @@
 echo "======================================================================================"
 echo "Digital Ocean CentOS7 Bootstrap"
 echo ""
+echo "This script will set configure the basics on a CentOS7 Digital Ocean droplet."
+echo "See https://media-glass.es/2015/06/28/digital-ocean-bootstrap/ for details."
 echo ""
 echo "======================================================================================"
 echo ""
@@ -36,3 +38,14 @@ systemctl enable firewalld > /dev/null 2>&1
 systemctl enable fail2ban > /dev/null 2>&1
 systemctl enable ntpd > /dev/null 2>&1
 echo "=> Done!"
+echo ""
+echo "======================================================================================"
+echo ""
+while true; do
+    read -p "Digital Ocean basics applied, do you want to reboot now?" yn
+    case $yn in
+        [Yy]* ) reboot; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
